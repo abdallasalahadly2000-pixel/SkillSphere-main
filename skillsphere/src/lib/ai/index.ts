@@ -24,7 +24,7 @@ export function aiStatus(): AiStatus {
     return {
       configured: true,
       provider: 'gemini',
-      model: process.env.GEMINI_MODEL || 'gemini-3.5-flash-lite',
+      model: 'gemini-3.5-flash-lite',
     }
   }
   if (process.env.OPENAI_API_KEY) {
