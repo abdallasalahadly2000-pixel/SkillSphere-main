@@ -1,14 +1,12 @@
+
 import Link from 'next/link'
 import { redirect } from 'next/navigation'
 import {
   ArrowRight,
   ArrowUpRight,
-  BrainCircuit,
   CheckCircle2,
   ListChecks,
-  Sparkles,
   Users,
-  Wand2,
 } from 'lucide-react'
 import { Logo, LogoMark } from '@/components/logo'
 import { ThemeToggle } from '@/components/theme-toggle'
@@ -28,9 +26,9 @@ export const dynamic = 'force-dynamic'
 
 const STEPS = [
   { title: 'Publish', body: 'Describe the problem in your own words.' },
-  { title: 'Understand', body: 'AI surfaces skills, gaps and next directions.' },
-  { title: 'Discover', body: 'See related problems and people, with reasons.' },
-  { title: 'Collaborate', body: 'Organise tasks and references in a workspace.' },
+  { title: 'Explore', body: 'Discover related problems, skills and resources.' },
+  { title: 'Connect', body: 'Find people with relevant skills and interests.' },
+  { title: 'Collaborate', body: 'Organise tasks and references in a shared workspace.' },
   { title: 'Document', body: 'Record the outcome and confirmed contributions.' },
 ]
 
@@ -43,6 +41,7 @@ export default async function WelcomePage() {
     repo.listProblems({ limit: 4 }),
     repo.listProblems({ category: 'engineering-robotics', limit: 1 }),
   ])
+
   const demoMode = !isSupabaseConfigured()
   const spotlight = roboticsProblems[0] ?? problems[0]
 
@@ -50,6 +49,7 @@ export default async function WelcomePage() {
     <div className="page-glow min-h-dvh">
       <header className="mx-auto flex h-20 w-full max-w-6xl items-center justify-between px-4 sm:px-6">
         <Logo size={34} />
+
         <div className="flex items-center gap-2">
           <ThemeToggle />
           <Button asChild variant="ghost" size="sm" className="hidden sm:inline-flex">
@@ -67,17 +67,19 @@ export default async function WelcomePage() {
         <section className="grid items-center gap-12 py-10 lg:grid-cols-[1.05fr_0.95fr] lg:py-16">
           <FadeIn>
             <Badge variant="primary" className="mb-5 px-3 py-1">
-              <Sparkles className="size-3.5" /> AI-powered collaborative problem solving
+              Collaborative problem solving
             </Badge>
+
             <h1 className="text-[2.6rem] font-semibold leading-[1.05] tracking-[-0.03em] text-foreground sm:text-[3.4rem]">
               Connect. Collaborate.
               <br />
               <span className="gradient-text">Solve.</span>
             </h1>
+
             <p className="mt-5 max-w-xl text-[16.5px] leading-relaxed text-muted-foreground">
-              Turn human knowledge into collective solutions. SkillSphere reads a problem, finds the
-              expertise it needs, and gives the people working on it a place to organise the work and
-              document what actually happened.
+              Turn human knowledge into collective solutions. SkillSphere helps people
+              share problems, discover relevant expertise, collaborate through organised
+              workspaces, and document real contributions.
             </p>
 
             <div className="mt-8 flex flex-wrap items-center gap-3">
@@ -86,9 +88,11 @@ export default async function WelcomePage() {
                   Sign up <ArrowRight />
                 </Link>
               </Button>
+
               <Button asChild size="lg" variant="outline">
                 <Link href="/sign-in">Sign in</Link>
               </Button>
+
               <Button asChild size="lg" variant="ghost" className="text-muted-foreground">
                 <Link href="/home">
                   Continue as guest <ArrowRight />
@@ -106,7 +110,9 @@ export default async function WelcomePage() {
                   <dt className="text-[11.5px] font-medium uppercase tracking-wider text-muted-foreground">
                     {stat.label}
                   </dt>
-                  <dd className="mt-0.5 text-[22px] font-semibold text-foreground">{stat.value}</dd>
+                  <dd className="mt-0.5 text-[22px] font-semibold text-foreground">
+                    {stat.value}
+                  </dd>
                 </div>
               ))}
             </dl>
@@ -115,8 +121,8 @@ export default async function WelcomePage() {
               <p className="mt-6 max-w-lg rounded-lg border border-dashed border-border bg-surface/60 px-3.5 py-2.5 text-[12px] leading-relaxed text-muted-foreground">
                 Running on the local demo database. Sign in with{' '}
                 <span className="font-semibold text-foreground">{DEMO_ACCOUNT.email}</span> /{' '}
-                <span className="font-semibold text-foreground">{DEMO_ACCOUNT.password}</span> to explore the seeded
-                robotics scenario, or create your own account.
+                <span className="font-semibold text-foreground">{DEMO_ACCOUNT.password}</span>{' '}
+                to explore the seeded robotics scenario, or create your own account.
               </p>
             ) : null}
           </FadeIn>
@@ -139,9 +145,11 @@ export default async function WelcomePage() {
                   <p className="text-[10.5px] font-semibold uppercase tracking-wider text-muted-foreground">
                     Engineering · Robotics
                   </p>
+
                   <p className="mt-1.5 text-[15px] font-semibold leading-snug text-foreground">
                     Robot loses localisation after the second docking cycle
                   </p>
+
                   <div className="mt-3 flex flex-wrap gap-1.5">
                     {['Localisation', 'ROS2', 'Sensor fusion'].map((skill) => (
                       <span
@@ -153,16 +161,6 @@ export default async function WelcomePage() {
                     ))}
                   </div>
 
-                  <div className="mt-4 rounded-lg border border-border bg-ai p-3.5">
-                    <div className="flex items-center gap-1.5 text-[10px] font-semibold uppercase tracking-wider text-primary">
-                      <Sparkles className="size-3.5" /> AI analysis · suggested
-                    </div>
-                    <p className="mt-1.5 text-[12px] leading-relaxed text-muted-foreground">
-                      Likely drift in the fused IMU and odometry estimate. Suggested next step: compare
-                      pose error before and after docking.
-                    </p>
-                  </div>
-
                   <div className="mt-4 flex items-center justify-between border-t border-border pt-3.5">
                     <div className="flex items-center gap-2">
                       <div className="flex -space-x-2">
@@ -170,8 +168,11 @@ export default async function WelcomePage() {
                         <Avatar name="Mona Hassan" size={26} className="ring-2 ring-surface" />
                         <Avatar name="Sarah Ahmed" size={26} className="ring-2 ring-surface" />
                       </div>
-                      <span className="text-[11.5px] text-muted-foreground">3 contributors matched</span>
+                      <span className="text-[11.5px] text-muted-foreground">
+                        3 contributors matched
+                      </span>
                     </div>
+
                     <span className="flex items-center gap-1 text-[11.5px] font-medium text-muted-foreground">
                       <CheckCircle2 className="size-3.5 text-emerald-500" /> Evidence shown
                     </span>
@@ -195,19 +196,19 @@ export default async function WelcomePage() {
         <section className="grid gap-4 sm:grid-cols-3">
           {[
             {
-              icon: BrainCircuit,
-              title: 'AI reads the problem',
-              body: 'Skills, keywords, missing information and investigation directions — labelled as suggestions, always reviewed by the author.',
+              icon: ListChecks,
+              title: 'Explore problems',
+              body: 'Browse real challenges, discover shared interests and identify opportunities to contribute.',
             },
             {
               icon: Users,
-              title: 'Matching you can audit',
-              body: 'Contributors are ranked by skill overlap, interests and contribution history. Every recommendation shows its evidence.',
+              title: 'Connect through skills',
+              body: 'Discover contributors through their skills, interests and contribution history.',
             },
             {
-              icon: ListChecks,
-              title: 'From problem to outcome',
-              body: 'Tasks, shared references and a discussion stay attached to the problem, and confirmed contributions land on profiles.',
+              icon: CheckCircle2,
+              title: 'Turn ideas into outcomes',
+              body: 'Organise tasks, share references and document completed work and confirmed contributions.',
             },
           ].map((feature) => (
             <div key={feature.title} className="surface p-5">
@@ -215,24 +216,26 @@ export default async function WelcomePage() {
                 <feature.icon className="size-5" />
               </div>
               <h3 className="text-[14.5px] font-semibold text-foreground">{feature.title}</h3>
-              <p className="mt-1.5 text-[13px] leading-relaxed text-muted-foreground">{feature.body}</p>
+              <p className="mt-1.5 text-[13px] leading-relaxed text-muted-foreground">
+                {feature.body}
+              </p>
             </div>
           ))}
         </section>
 
         <section className="mt-14">
-          <div className="flex items-center gap-2">
-            <Wand2 className="size-4 text-primary" />
-            <h2 className="text-[13px] font-semibold uppercase tracking-wider text-muted-foreground">
-              One workflow, end to end
-            </h2>
-          </div>
+          <h2 className="text-[13px] font-semibold uppercase tracking-wider text-muted-foreground">
+            One workflow, end to end
+          </h2>
+
           <ol className="mt-4 grid gap-3 sm:grid-cols-5">
             {STEPS.map((step, index) => (
               <li key={step.title} className="rounded-lg border border-border bg-surface/70 p-4">
                 <span className="text-[11px] font-semibold text-primary">0{index + 1}</span>
                 <p className="mt-1 text-[13.5px] font-semibold text-foreground">{step.title}</p>
-                <p className="mt-1 text-[12px] leading-relaxed text-muted-foreground">{step.body}</p>
+                <p className="mt-1 text-[12px] leading-relaxed text-muted-foreground">
+                  {step.body}
+                </p>
               </li>
             ))}
           </ol>
@@ -246,12 +249,15 @@ export default async function WelcomePage() {
                   <CategoryIcon category={spotlight.category} className="size-3" />
                   Demo scenario · {categoryLabel(spotlight.category)}
                 </Badge>
+
                 <h2 className="text-[22px] font-semibold leading-snug tracking-tight text-foreground">
                   {spotlight.title}
                 </h2>
+
                 <p className="mt-2 max-w-xl text-[13.5px] leading-relaxed text-muted-foreground">
                   {truncate(spotlight.description, 240)}
                 </p>
+
                 <div className="mt-4 flex flex-wrap items-center gap-3">
                   <StatusBadge status={spotlight.status} />
                   <span className="text-[12.5px] text-muted-foreground">
@@ -264,11 +270,12 @@ export default async function WelcomePage() {
                   </Button>
                 </div>
               </div>
+
               <ul className="space-y-2.5 rounded-lg border border-border bg-muted/60 p-4">
                 {[
-                  'AI analysis of the localisation failure',
-                  'Related problems found by shared tags and skills',
-                  'Contributors matched with evidence',
+                  'Problem description and required skills',
+                  'Related problems discovered through shared tags',
+                  'Contributors discovered through skills and interests',
                   'Tasks, references and a documented outcome',
                 ].map((item) => (
                   <li key={item} className="flex items-start gap-2 text-[12.5px] text-muted-foreground">
@@ -288,6 +295,7 @@ export default async function WelcomePage() {
             <Logo size={24} />
             <span>· Turn human knowledge into collective solutions.</span>
           </div>
+
           <div className="flex gap-4">
             <Link href="/problems" className="hover:text-primary">
               Explore problems
