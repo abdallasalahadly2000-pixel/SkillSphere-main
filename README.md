@@ -1,98 +1,96 @@
 # SkillSphere
 
-###
+**What if every problem could find the people capable of solving it?**
 
-**SkillSphere is an AI-powered collaborative problem-solving platform that helps people turn real-world challenges into shared solutions.**
+SkillSphere is a collaborative platform built around one simple idea: meaningful solutions happen when the right people, skills, and ideas come together.
 
-It brings together people with different skills, backgrounds, and experiences so they can work together, exchange knowledge, and solve problems more effectively.
+People often have valuable ideas, face challenges, or identify problems worth solving. Yet finding the right collaborators, organizing their efforts, and turning discussions into real outcomes can be difficult.
+
+SkillSphere brings these steps together in one place — helping people move from identifying a problem to working together on a documented solution.
 
 ## The Problem
 
-Many people face problems they cannot solve alone.
+Finding a solution is not always about having the right idea. It is also about finding the right people.
 
-Sometimes, the right knowledge exists, but it is spread across different people and communities. Finding someone with the right skills, getting useful advice, and organizing a team can take a lot of time.
-
-Most online platforms focus on sharing content or connecting people, rather than helping them work together to solve real problems.
+- People struggle to find collaborators with relevant skills.
+- Valuable ideas and challenges remain scattered across different platforms.
+- Discussions do not always lead to organized, actionable work.
+- Contributions and final outcomes can be difficult to track.
 
 ## Our Solution
 
-SkillSphere creates a space where people can share challenges, discover relevant experts, and collaborate on practical solutions.
+SkillSphere creates a shared environment where problems become opportunities for collaboration.
 
-Instead of simply connecting users, SkillSphere focuses on **connecting the right people around the right problems.**
+Users can publish challenges, discover relevant problems, connect with potential contributors, organize tasks, exchange resources, and document completed solutions.
+
+Instead of treating problem-solving as an isolated activity, SkillSphere makes it a collaborative process.
 
 ## How It Works
 
-1. **Share a Problem**
-   Users publish a challenge and explain what they need help with.
+**01 — Publish a Problem**
 
-2. **AI-Powered Analysis**
-   AI analyzes the problem, identifies important details, and suggests the skills needed to solve it.
+Describe a challenge, explain its context, select a category, and specify the skills or support needed.
 
-3. **Find the Right People**
-   SkillSphere recommends relevant members based on their skills, interests, and experience.
+**02 — Discover Opportunities**
 
-4. **Collaborate Together**
-   Members can connect, discuss ideas, share resources, and organize their work in a shared workspace.
+Explore published problems through categories, required skills, tags, and relevant keywords.
 
-5. **Build Solutions**
-   The goal is to turn discussions and different perspectives into useful, practical outcomes.
+**03 — Find the Right People**
 
-## some Features
+Discover potential collaborators through a data-based matching system that considers skill overlap, shared interests, and contribution history.
 
-- **AI Problem Analysis:** Understands challenges and identifies the skills and information needed.
-- **Smart People Matching:** Helps users discover people who may be able to contribute.
-- **Problem Sharing:** Allows members to publish challenges and ask for help.
-- **Collaboration Workspace:** Provides a shared space for discussions, tasks, and resources.
-- **Community Interaction:** Supports communication and knowledge exchange.
-- **User Profiles:** Show members' skills, interests, and areas of expertise.
-- **Problem Tracking:** Helps members follow the progress of shared challenges.
+**04 — Work Together**
 
-## Why SkillSphere?
+Use discussions and shared workspaces to coordinate contributors, organize tasks, and exchange resources.
 
-SkillSphere is built around one simple idea:
+**05 — Document the Outcome**
 
-**The best solutions often come from people working together.**
+Record the final solution and recognize the contributions that helped make it possible.
 
-It helps users:
+## Key Features
 
-- Find knowledge beyond their own experience.
-- Connect with people who have relevant skills.
-- Save time searching for help.
-- Learn from different perspectives.
-- Turn ideas into organized teamwork.
-- Work on challenges that matter in the real world.
+- **Problem Management:** Publish, edit, explore, and track challenges.
+- **Skill-Based Matching:** Discover potential collaborators using profile and contribution data.
+- **Member Profiles:** Showcase skills, interests, professional backgrounds, and previous contributions.
+- **Community Connections:** Discover members and build professional connections.
+- **Public Discussions:** Exchange ideas, ask questions, and discuss possible solutions.
+- **Collaborative Workspaces:** Organize tasks, contributors, and shared resources.
+- **Solution Documentation:** Preserve completed solutions and contribution records.
 
-## Who Is It For?
+## What Makes SkillSphere Different?
 
-SkillSphere can be useful for:
+SkillSphere is not simply a place to post questions or manage tasks.
 
-- Students working on academic or technical challenges.
-- Developers looking for collaborators.
-- Researchers exploring complex questions.
-- Professionals sharing knowledge and experience.
-- Anyone who has a problem and wants to solve it with others.
+It connects the entire collaboration journey:
 
-## Technology
+**Problems → People → Skills → Collaboration → Solutions**
 
-SkillSphere is built using modern web technologies:
+Its focus is on connecting problem discovery with people discovery, then providing the tools needed to turn that connection into organized work and documented outcomes.
 
-- **Next.js** – Application framework.
-- **React** – User interface.
-- **TypeScript** – Type-safe development.
-- **Supabase** – Database and authentication.
-- **Google Gemini** – AI-powered problem analysis.
-- **Tailwind CSS** – Styling and responsive design.
+The platform currently uses rule-based, data-driven matching rather than AI-generated recommendations, keeping its matching process grounded in available profile and contribution information.
 
-## Our Vision
+## Technology Stack
 
-We want to make knowledge more accessible and collaboration more meaningful.
+| Technology       | Role                                     |
+| ---------------- | ---------------------------------------- |
+| Next.js          | Web application framework                |
+| React            | User interface                           |
+| TypeScript       | Type-safe development                    |
+| Tailwind CSS     | Responsive interface styling             |
+| Supabase         | Backend services and PostgreSQL database |
+| Supabase Auth    | Authentication and user management       |
+| Supabase Storage | File and image storage                   |
+| Vercel           | Deployment and hosting                   |
 
-SkillSphere aims to become a place where people do not just share what they know, but use their knowledge to help others and create solutions together.
+## Live Demo
 
-## The Bigger Idea
+**Explore the platform:**
+[https://skillsphere-ebon.vercel.app](https://skillsphere-ebon.vercel.app)
 
-**Don't just connect people. Connect people to possibilities.**
+## Vision
 
----
+We believe that knowledge becomes more valuable when it is shared, skills become more impactful when they are applied, and difficult problems become easier when people work together.
 
-*SkillSphere — Connect. Collaborate. Solve.*
+SkillSphere aims to make that collaboration easier to discover, organize, and sustain.
+
+**One problem. The right people. A shared solution.**
