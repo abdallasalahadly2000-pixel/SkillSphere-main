@@ -1,3 +1,4 @@
+
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { ShieldAlert } from 'lucide-react'
@@ -5,7 +6,6 @@ import { Button } from '@/components/ui/button'
 import { ProblemForm } from '@/components/problem-form'
 import { getViewer } from '@/lib/auth'
 import { repo } from '@/lib/data'
-import { aiStatus } from '@/lib/ai'
 
 export const dynamic = 'force-dynamic'
 
@@ -44,15 +44,17 @@ export default async function EditProblemPage({ params }: { params: Promise<{ id
     <div className="space-y-5">
       <header>
         <p className="text-[12px] font-semibold uppercase tracking-wider text-primary">Edit problem</p>
-        <h1 className="mt-1 text-[1.6rem] font-semibold tracking-tight text-foreground">{problem.title}</h1>
+        <h1 className="mt-1 text-[1.6rem] font-semibold tracking-tight text-foreground">
+          {problem.title}
+        </h1>
         <p className="mt-1 text-[13px] text-muted-foreground">
-          Changes are saved to the problem immediately. The stored AI analysis is not regenerated.
+          Update your problem details and save your changes.
         </p>
       </header>
+
       <ProblemForm
         mode="edit"
         problem={problem}
-        aiConfigured={aiStatus().configured}
         owner={{
           id: viewer.user.id,
           name: viewer.profile?.display_name ?? viewer.user.displayName,
