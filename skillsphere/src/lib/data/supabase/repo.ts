@@ -25,9 +25,7 @@ import type { ProblemStatus, TaskStatus } from '@/lib/constants'
 type Row = Record<string, any>
 
 const PROBLEM_FIELDS = `id, owner_id, title, description, category, help_type, status, tags, required_skills,
-  ai_analysis, attachment_url, cover_url, is_demo, created_at, updated_at,
-  owner:profiles!problems_owner_id_fkey(id, display_name, avatar_url, profession, is_demo),
-  comments(count), contributors(count)`
+  ai_analysis, attachment_url, cover_url, is_demo, created_at, updated_at`
 
 const PROFILE_FIELDS = `id, display_name, username, avatar_url, bio, profession, location, onboarding_complete,
   profile_visibility, show_email, notify_connections, notify_comments, notify_tasks, is_demo, created_at,
