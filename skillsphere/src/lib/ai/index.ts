@@ -143,7 +143,11 @@ async function callProvider(prompt: string, system: string): Promise<AiResult<st
           }),
         },
       )
-      if (!res.ok) return mapHttpError(res.status)
+      if (!res.ok) {
+  const errorBody = await res.text()
+  console.error('[Gemini API Error]', res.status, errorBody)
+  return mapHttpError(res.status)
+}
       const json = (await res.json()) as {
         candidates?: Array<{ content?: { parts?: Array<{ text?: string }> } }>
       }
@@ -172,7 +176,11 @@ async function callProvider(prompt: string, system: string): Promise<AiResult<st
         ],
       }),
     })
-    if (!res.ok) return mapHttpError(res.status)
+    if (!res.ok) {
+  const errorBody = await res.text()
+  console.error('[Gemini API Error]', res.status, errorBody)
+  return mapHttpError(res.status)
+}
     const json = (await res.json()) as { choices?: Array<{ message?: { content?: string } }> }
     const text = json.choices?.[0]?.message?.content ?? ''
     if (!text.trim()) {
